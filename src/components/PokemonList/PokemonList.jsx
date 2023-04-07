@@ -4,7 +4,7 @@ import styles from "./PokemonList.module.css";
 
 const PokemonList = ({ pokemonList }) => {
   const pokemonElem = pokemonList.map((item) => (
-    <PokemonCard key={item.id} {...item} />
+    <PokemonCard key={item.name} {...item} />
   ));
   return <ul className={styles.list}>{pokemonElem}</ul>;
 };

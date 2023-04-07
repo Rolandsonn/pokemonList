@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./PokemonCard.module.css";
 import axios from "axios";
+import Loader from "../Loader/Loader";
 
 const PokemonCard = ({ name, url }) => {
   const [imgPokemon, setImagePokemon] = useState();
@@ -11,7 +12,7 @@ const PokemonCard = ({ name, url }) => {
       setImagePokemon(img);
     } catch (error) {
       console.log(error + "FetchingPokemon failed PokemonCard");
-    }
+    } 
   };
 
   useEffect(() => {
@@ -21,10 +22,16 @@ const PokemonCard = ({ name, url }) => {
   }, [url]);
 
   return (
-    <li className={styles.card}>
-      <img className={styles.img} src={imgPokemon} alt="pokemon" />
-      <p className={styles.text}>{name}</p>
-    </li>
+    <>
+      {imgPokemon ? (
+        <li className={styles.card}>
+          <img className={styles.img} src={imgPokemon} alt="pokemon" />
+          <p className={styles.text}>{name}</p>
+        </li>
+      ) : (
+        <Loader />
+      )}
+    </>
   );
 };
 
