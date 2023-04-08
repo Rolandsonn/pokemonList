@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+}
+.text {
+  font-size: 20px;
+  font-weight: bold;
+}
+/* styles.module.css */
+.abilitiesContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.abilityItem {
+  width: 100px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.abilityName {
+  font-weight: bold;
+}
+
+.abilityDescription {
+  margin-top: 5px;
+  font-size: 12px;
+}
