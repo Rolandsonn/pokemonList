@@ -7,7 +7,6 @@ import styles from "./PokemonPage.module.css";
 const PokemonPage = () => {
   const [img, setImg] = useState();
   const [pokemon, setPokemon] = useState({});
-  const [abilities, setAbilities] = useState();
   const { name } = useParams();
   const BASE_URL = "https://pokeapi.co/api/v2/";
 
@@ -17,6 +16,7 @@ const PokemonPage = () => {
       const img = data.sprites.other.dream_world.front_default;
       setImg(img);
       setPokemon(data);
+      console.log(data);
     } catch (error) {
       console.log(error + "FetchPokemon failed in PokemonPage");
     }
@@ -50,6 +50,8 @@ const PokemonPage = () => {
           <div className={styles.inner}>
             <p className={styles.text}>{pokemon.name}</p>
             <p className={styles.text}>Experience: {pokemon.base_experience}</p>
+            <p className={styles.text}>Height: {pokemon.height} m</p>
+            <p className={styles.text}>Weight: {pokemon.weight} kg</p>
           </div>
         </div>
       </div>
