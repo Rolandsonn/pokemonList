@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useSpring, animated, useTrail } from "react-spring";
+import { useSpring, animated } from "react-spring";
 
 import styles from "./PokemonPage.module.css";
 const PokemonPage = () => {
@@ -16,7 +16,6 @@ const PokemonPage = () => {
       const img = data.sprites.other.dream_world.front_default;
       setImg(img);
       setPokemon(data);
-      console.log(data);
     } catch (error) {
       console.log(error + "FetchPokemon failed in PokemonPage");
     }

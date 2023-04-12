@@ -29,3 +29,8 @@ button {
 .lightBtn {
   margin-left: 30px;
 }
+select {
+  display: block;
+  cursor: pointer;
+  width: 200px;
+}

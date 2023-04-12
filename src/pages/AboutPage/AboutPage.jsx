@@ -1,7 +1,14 @@
-import React from "react";
+import React, { Component } from "react";
+import Filter from "../../components/Filter/Filter";
+import axios from "axios";
+import PokemonList from "../../components/PokemonList/PokemonList";
 
-const AboutPage = () => {
-  return <div>AboutPage</div>;
-};
+export default class AboutPage extends Component {
+  state = {
+    pokemonName: "",
+  };
 
-export default AboutPage;
+  render() {
+    return <div>This project about pokemons</div>;
+  }
+}
