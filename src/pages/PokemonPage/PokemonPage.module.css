@@ -30,3 +30,36 @@
   margin-top: 5px;
   font-size: 12px;
 }
+
+/* Stats */
+.containerStats {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+.statGroup {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.statGroup span {
+  flex: 20%;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.progressBar {
+  width: 100%;
+  height: 30px;
+  background-color: var(--color-primary);
+  border-radius: 10px;
+}

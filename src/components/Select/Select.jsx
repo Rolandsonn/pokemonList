@@ -1,21 +1,38 @@
 import React from "react";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
-const Select = ({ selectedType, handleTypeChange }) => {
+const SelectTypes = ({ types, onChange, label, value }) => {
+  const typeElems = types.map((type) => (
+    <MenuItem key={type} value={type}>
+      {type}
+    </MenuItem>
+  ));
   return (
     <>
       <div className="input-field col s10 select">
-        <select defaultValue={selectedType} onChange={handleTypeChange}>
-          <option value="">Выберите тип покемона</option>
-          <option value="water">Water</option>
-          <option value="combat">Fighting</option>
-          <option value="poison">Poison</option>
-          <option value="fire">Fire</option>
-          <option value="grass">Grass</option>
-          <option value="flying">Flying</option>
-        </select>
+        <FormControl fullWidth sx={{ mb: "20px", borderColor: "#cacaca" }}>
+          <InputLabel id="select" color="secondary" sx={{ color: "#cacaca" }}>
+            {label}
+          </InputLabel>
+          <Select
+            sx={{
+              borderBottom: "1px solid#cacaca",
+              borderRadius: "3px",
+              color: "#cacaca",
+            }}
+            labelId="select"
+            id="select-1"
+            color="secondary"
+            value={value}
+            label={label}
+            onChange={onChange}
+          >
+            {typeElems}
+          </Select>
+        </FormControl>
       </div>
     </>
   );
 };
 
-export default Select;
+export default SelectTypes;

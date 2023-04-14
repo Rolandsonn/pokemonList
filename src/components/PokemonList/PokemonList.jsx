@@ -9,7 +9,7 @@ const PokemonList = ({ pokemonList }) => {
     }
     return <PokemonCard key={item.name} {...item} />;
   });
-  return <ul className={styles.list}>{pokemonElem}</ul>;
+  return <ul className={styles.list}>{pokemonList.length && pokemonElem}</ul>;
 };
 
 export default PokemonList;

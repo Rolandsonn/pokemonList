@@ -1,8 +1,12 @@
 .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-radius: 6px;
-  border: 5px solid rgb(10, 130, 186);
   padding-top: 20px;
   padding-bottom: 20px;
+  border: 5px solid rgb(10, 130, 186);
+  background-color: #f2f2f2;
 }
 .img {
   width: 100%;
@@ -13,4 +17,21 @@
   font-size: 20px;
   font-weight: bold;
   color: tomato;
+}
+.pokemonId {
+  display: block;
+  color: #888;
+  margin-bottom: 15px;
+}
+.cardTypes {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cardTypes > span {
+  font-size: 15px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  color: #fff;
 }
