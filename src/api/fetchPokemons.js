@@ -11,7 +11,7 @@ const fetchPokemons = async (limit, offset, type) => {
     } else {
       const { data } = await axios.get(`/type/${type}/`);
       const filteredPokemons = data.pokemon.filter(
-        (item, index) => offset <= index && index < limit
+        (item, index) => offset <= index && index < offset + limit
       );
 
       const results = filteredPokemons.map(({ pokemon }) => pokemon);
@@ -26,9 +26,8 @@ const fetchPokemons = async (limit, offset, type) => {
 const fetchPokemon = async (name) => {
   try {
     const { data } = await axios(`pokemon/${name}`);
-    const img = data.sprites.other.dream_world.front_default;
 
-    return { ...data, img };
+    return { ...data };
   } catch (error) {
     console.log(error + "FetchPokemon failed");
   }

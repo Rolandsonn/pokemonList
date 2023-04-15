@@ -14,6 +14,8 @@ import Typography from "@mui/material/Typography";
 import logo from "../../assets/img/ball.png";
 import styles from "./Navbar.module.css";
 import { MenuItem } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
 const drawerWidth = 240;
 const navItems = [
   { title: "Home", to: "/" },
@@ -36,7 +38,7 @@ function DrawerAppBar(props) {
         </Link>
       </Typography>
       <Divider />
-      <List>
+      <List sx={{ display: "flex" }}>
         {navItems.map(({ title, to }) => (
           <ListItem>
             <ListItemText>
@@ -56,6 +58,15 @@ function DrawerAppBar(props) {
       <CssBaseline />
       <AppBar component="nav">
         <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: "none" } }}
+          >
+            <MenuIcon />
+          </IconButton>
           <Typography
             variant="h6"
             component="div"
@@ -65,11 +76,13 @@ function DrawerAppBar(props) {
               <img className={styles.logo} src={logo} alt="" />
             </Link>
           </Typography>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+          <Box sx={{ display: { xs: "none", sm: "flex" } }}>
             {navItems.map(({ title, to }) => (
               <ListItem>
                 <ListItemText>
-                  <Link to={to}>{title}</Link>
+                  <Link className={styles.link} to={to}>
+                    {title}
+                  </Link>
                 </ListItemText>
               </ListItem>
             ))}
@@ -96,7 +109,7 @@ function DrawerAppBar(props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" sx={{ p: 3 }}>
+      <Box component="main" sx={{ p: 0 }}>
         <Toolbar />
       </Box>
     </Box>

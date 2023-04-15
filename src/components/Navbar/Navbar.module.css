@@ -5,3 +5,6 @@
 .navbar {
   display: flex;
 }
+.link {
+  color: #fff;
+}

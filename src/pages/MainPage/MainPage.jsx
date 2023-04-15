@@ -14,8 +14,8 @@ const MainPage = () => {
   const [selectedType, setSelectedType] = useState("all");
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const currentPage = +searchParams.get("page");
   const currentType = searchParams.get("type");
-
   const types = [
     "all",
     "grass",
@@ -50,10 +50,12 @@ const MainPage = () => {
   }, [offset, selectedType]);
 
   useEffect(() => {
+    currentPage ? setPage(currentPage) : setPage(1);
+  }, [currentPage]);
+
+  useEffect(() => {
     currentType && setSelectedType(currentType);
   }, [currentType]);
-
-  const handleTypeChange = (e) => {};
 
   const handleNext = () => {
     if (page === pageCount) return;
@@ -75,7 +77,7 @@ const MainPage = () => {
           value={selectedType}
           types={types}
           onChange={(e) => {
-            // setSearchParams({ type: e.target.value });
+            setSearchParams({ type: e.target.value });
             setSelectedType(e.target.value);
           }}
         />
@@ -86,6 +88,7 @@ const MainPage = () => {
           handlePrev={handlePrev}
           pageCount={pageCount}
           page={page}
+          type={selectedType}
         />
       </div>
     </>

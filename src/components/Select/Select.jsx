@@ -9,8 +9,10 @@ const SelectTypes = ({ types, onChange, label, value }) => {
   ));
   return (
     <>
-      <div className="input-field col s10 select">
-        <FormControl fullWidth sx={{ mb: "20px", borderColor: "#cacaca" }}>
+      <div className="">
+        <FormControl
+          sx={{ mb: "20px", borderColor: "#cacaca", width: "200px" }}
+        >
           <InputLabel id="select" color="secondary" sx={{ color: "#cacaca" }}>
             {label}
           </InputLabel>
